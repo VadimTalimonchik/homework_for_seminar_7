@@ -58,7 +58,7 @@ void AverageInColumn(int[,] array)
             i++;
         }
         average = Math.Round((sum / i), 2);
-        Console.WriteLine($"Среднее значение элементов {j + 1}-го столбца {average}");
+        Console.WriteLine($"Среднее значение элементов {j + 1}-го столбца равно: {average}");
         j++;
     }
 }
