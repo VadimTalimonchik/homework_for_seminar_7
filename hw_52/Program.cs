@@ -11,33 +11,25 @@ int[,] CreateArray(int rows, int columns)
 {
     Random rnd = new Random();
     int[,] array = new int[rows, columns];
-    int i = 0, j = 0;
-    while (i < rows)
+    for(int i = 0; i < rows; i++)
     {
-        j = 0;
-        while (j < columns)
+        for(int j = 0; j < columns; j++)
         {
             array[i, j] = new Random().Next(0, 11);
-            j++;
         }
-        i++;
     }
     return array;
 }
 
 void PrintArray(int[,] array)
 {
-    int i = 0, j = 0;
-    while (i < array.GetLength(0))
+    for(int i = 0; i < array.GetLength(0); i++)
     {
-        j = 0;
-        while (j < array.GetLength(1))
+        for(int j = 0; j < array.GetLength(1); j++)
         {
             Console.Write("{0}\t", array[i, j]);
-            j++;
         }
-        Console.WriteLine(" ");
-        i++;
+        Console.WriteLine();
     }
 }
 
@@ -45,10 +37,12 @@ Console.Write("Введите количество строк: ");
 int rows = int.Parse(Console.ReadLine()!);
 Console.Write("Введите количество столбцов: ");
 int columns = int.Parse(Console.ReadLine()!);
+
 int[,] array = new int[rows, columns];
 array = CreateArray(rows, columns);
 Console.WriteLine();
 PrintArray(array);
+Console.WriteLine();
 
 void AverageInColumn(int[,] array)
 {
@@ -64,7 +58,7 @@ void AverageInColumn(int[,] array)
             i++;
         }
         average = Math.Round((sum / i), 2);
-        Console.WriteLine($"Среднее значение элементов {j} столбца {average}");
+        Console.WriteLine($"Среднее значение элементов {j}-го столбца {average}");
         j++;
     }
 }
